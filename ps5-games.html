@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ألعاب PS5 - 4GAMER</title>
+    <meta name="description" content="تحميل ألعاب PS5 - منصة 4GAMER المتخصصة في ألعاب PlayStation بجميع إصداراتها، مع التركيز على الألعاب المعربة والتعريبات الرسمية وغير الرسمية">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    <link rel="stylesheet" href="css/game-grid.css">
+    <link rel="stylesheet" href="css/bilingual-support.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث عن ألعاب، ثيمات، تطبيقات...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل اللغة -->
+                <button class="language-toggle" id="language-toggle" aria-label="تبديل اللغة">
+                    <i class="fas fa-globe"></i>
+                </button>
+                
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- إضافة قسم الأسئلة الشائعة -->
+            <li class="dropdown-item highlight-item">
+                <a href="faq.html" class="dropdown-link">
+                    <span><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <!-- إضافة قسم DMCA -->
+            <li class="dropdown-item highlight-item">
+                <a href="dmca.html" class="dropdown-link">
+                    <span><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <!-- إضافة زر تسجيل دخول المسؤول -->
+            <li class="dropdown-item admin-login-item">
+                <a href="admin-login.html" class="dropdown-link admin-link">
+                    <span><i class="fas fa-user-shield dropdown-icon"></i> تسجيل دخول المسؤول</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- رأس الصفحة -->
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">ألعاب PS5</h1>
+            <p class="page-description">مكتبة شاملة من ألعاب PlayStation 5 المعربة وغير المعربة، مع تحديثات مستمرة لأحدث الإصدارات</p>
+        </div>
+    </header>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="container">
+        <!-- قسم الفلاتر -->
+        <section class="filter-section">
+            <div class="filter-container">
+                <div class="filter-group">
+                    <label for="platform-filter">المنصة</label>
+                    <select id="platform-filter" class="filter-select">
+                        <option value="ps5">PS5</option>
+                        <option value="ps4">PS4</option>
+                        <option value="all">الكل</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="category-filter">التصنيف</label>
+                    <select id="category-filter" class="filter-select">
+                        <option value="all">الكل</option>
+                        <option value="action">أكشن</option>
+                        <option value="adventure">مغامرة</option>
+                        <option value="rpg">لعب أدوار</option>
+                        <option value="sports">رياضة</option>
+                        <option value="racing">سباق</option>
+                        <option value="fighting">قتال</option>
+                        <option value="horror">رعب</option>
+                        <option value="openworld">عالم مفتوح</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="language-filter">اللغة</label>
+                    <select id="language-filter" class="filter-select">
+                        <option value="all">الكل</option>
+                        <option value="arabic">معربة</option>
+                        <option value="official-arabic">معربة رسمياً</option>
+                        <option value="non-arabic">غير معربة</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="region-filter">المنطقة</label>
+                    <select id="region-filter" class="filter-select">
+                        <option value="all">الكل</option>
+                        <option value="usa">USA</option>
+                        <option value="europe">Europe</option>
+                        <option value="japan">Japan</option>
+                        <option value="asia">Asia</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="sort-filter">الترتيب</label>
+                    <select id="sort-filter" class="filter-select">
+                        <option value="newest">الأحدث</option>
+                        <option value="oldest">الأقدم</option>
+                        <option value="alphabetical">أبجدي</option>
+                        <option value="size-asc">الحجم (تصاعدي)</option>
+                        <option value="size-desc">الحجم (تنازلي)</option>
+                    </select>
+                </div>
+                
+                <button id="filter-apply" class="btn">تطبيق الفلاتر</button>
+                <button id="filter-reset" class="filter-reset">
+                    <i class="fas fa-redo-alt"></i> إعادة ضبط
+                </button>
+            </div>
+            
+            <div class="filter-tags">
+                <div class="filter-tag" data-filter="all">
+                    <i class="fas fa-th-large"></i> الكل
+                </div>
+                <div class="filter-tag" data-filter="arabic">
+                    <i class="fas fa-language"></i> معربة
+                </div>
+                <div class="filter-tag" data-filter="converted">
+                    <i class="fas fa-exchange-alt"></i> محولة
+                </div>
+                <div class="filter-tag" data-filter="new">
+                    <i class="fas fa-star"></i> حديثة
+                </div>
+                <div class="filter-tag" data-filter="classic">
+                    <i class="fas fa-history"></i> كلاسيكية
+                </div>
+                <div class="filter-tag" data-filter="exclusive">
+                    <i class="fas fa-trophy"></i> حصرية
+                </div>
+                <div class="filter-tag" data-filter="multiplayer">
+                    <i class="fas fa-users"></i> متعددة اللاعبين
+                </div>
+                <div class="filter-tag" data-filter="vr">
+                    <i class="fas fa-vr-cardboard"></i> واقع افتراضي
+                </div>
+            </div>
+        </section>
+
+        <div class="main-content">
+            <!-- الشريط الجانبي -->
+            <aside class="sidebar">
+                <!-- قسم المنصات -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">
+                        <i class="fab fa-playstation"></i> المنصات
+                    </h3>
+                    <ul class="category-list">
+                        <li class="category-item">
+                            <a href="ps5-games.html" class="category-link active">
+                                <span>PlayStation 5</span>
+                                <span class="category-count">124</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="ps4-games.html" class="category-link">
+                                <span>PlayStation 4</span>
+                                <span class="category-count">358</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="ps3-games.html" class="category-link">
+                                <span>PlayStation 3</span>
+                                <span class="category-count">95</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- قسم التصنيفات -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">
+                        <i class="fas fa-gamepad"></i> التصنيفات
+                    </h3>
+                    <ul class="category-list">
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>أكشن</span>
+                                <span class="category-count">142</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>مغامرة</span>
+                                <span class="category-count">98</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>لعب أدوار</span>
+                                <span class="category-count">76</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>رياضة</span>
+                                <span class="category-count">54</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>سباق</span>
+                                <span class="category-count">42</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>قتال</span>
+                                <span class="category-count">38</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>رعب</span>
+                                <span class="category-count">29</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>عالم مفتوح</span>
+                                <span class="category-count">47</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- قسم اللغة -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">
+                        <i class="fas fa-language"></i> اللغة
+                    </h3>
+                    <ul class="category-list">
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>معربة رسمياً</span>
+                                <span class="category-count">68</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>معربة غير رسمياً</span>
+                                <span class="category-count">124</span>
+                            </a>
+                        </li>
+                        <li class="category-item">
+                            <a href="#" class="category-link">
+                                <span>غير معربة</span>
+                                <span class="category-count">166</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+            
+            <!-- منطقة المحتوى -->
+            <div class="content-area">
+                <!-- قسم الألعاب المعربة رسمياً -->
+                <section class="games-section" id="official-arabic-games">
+                    <div class="section-header">
+                        <div class="section-title-container">
+                            <i class="fas fa-certificate section-icon"></i>
+                            <h2 class="section-title">ألعاب معربة رسمياً</h2>
+                        </div>
+                        <div class="section-action">
+                            <a href="#" class="btn btn-outline btn-sm">عرض الكل</a>
+                        </div>
+                    </div>
+                    
+                    <div class="games-grid">
+                        <!-- بطاقة لعبة 1 -->
+                        <div class="game-card" data-game-id="101">
+                            <img src="images/games/ps5-game1.jpg" alt="Demon's Souls" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-badge">معربة رسمياً</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Demon's Souls</h3>
+                                <div class="game-info">
+                                    <span>أكشن، لعب أدوار</span>
+                                    <span>66 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- بطاقة لعبة 2 -->
+                        <div class="game-card" data-game-id="102">
+                            <img src="images/games/ps5-game2.jpg" alt="Ratchet & Clank: Rift Apart" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-badge">معربة رسمياً</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Ratchet & Clank: Rift Apart</h3>
+                                <div class="game-info">
+                                    <span>أكشن، مغامرة</span>
+                                    <span>42 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- بطاقة لعبة 3 -->
+                        <div class="game-card" data-game-id="103">
+                            <img src="images/games/ps5-game3.jpg" alt="Spider-Man: Miles Morales" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-badge">معربة رسمياً</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Spider-Man: Miles Morales</h3>
+                                <div class="game-info">
+                                    <span>أكشن، مغامرة</span>
+                                    <span>50 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- بطاقة لعبة 4 -->
+                        <div class="game-card" data-game-id="104">
+                            <img src="images/games/ps5-game4.jpg" alt="Returnal" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-badge">معربة رسمياً</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Returnal</h3>
+                                <div class="game-info">
+                                    <span>أكشن، رعب</span>
+                                    <span>56 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="load-more-official" class="load-more">عرض المزيد</button>
+                </section>
+                
+                <!-- قسم الألعاب المعربة غير رسمياً -->
+                <section class="games-section" id="non-official-arabic-games">
+                    <div class="section-header">
+                        <div class="section-title-container">
+                            <i class="fas fa-language section-icon"></i>
+                            <h2 class="section-title">ألعاب معربة غير رسمياً</h2>
+                        </div>
+                        <div class="section-action">
+                            <a href="#" class="btn btn-outline btn-sm">عرض الكل</a>
+                        </div>
+                    </div>
+                    
+                    <div class="games-grid">
+                        <!-- بطاقة لعبة 1 -->
+                        <div class="game-card" data-game-id="105">
+                            <img src="images/games/ps5-game5.jpg" alt="Elden Ring" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-badge">معربة</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Elden Ring</h3>
+                                <div class="game-info">
+                                    <span>أكشن، لعب أدوار</span>
+                                    <span>45 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- بطاقة لعبة 2 -->
+                        <div class="game-card" data-game-id="106">
+                            <img src="images/games/ps5-game6.jpg" alt="Hogwarts Legacy" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-badge">معربة</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Hogwarts Legacy</h3>
+                                <div class="game-info">
+                                    <span>لعب أدوار، مغامرة</span>
+                                    <span>85 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- بطاقة لعبة 3 -->
+                        <div class="game-card" data-game-id="107">
+                            <img src="images/games/ps5-game7.jpg" alt="Final Fantasy XVI" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-badge">معربة</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Final Fantasy XVI</h3>
+                                <div class="game-info">
+                                    <span>لعب أدوار</span>
+                                    <span>100 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- بطاقة لعبة 4 -->
+                        <div class="game-card" data-game-id="108">
+                            <img src="images/games/ps5-game8.jpg" alt="Resident Evil 4 Remake" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-badge">معربة</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Resident Evil 4 Remake</h3>
+                                <div class="game-info">
+                                    <span>رعب، أكشن</span>
+                                    <span>60 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="load-more-non-official" class="load-more">عرض المزيد</button>
+                </section>
+                
+                <!-- قسم الألعاب غير المعربة -->
+                <section class="games-section" id="non-arabic-games">
+                    <div class="section-header">
+                        <div class="section-title-container">
+                            <i class="fas fa-globe section-icon"></i>
+                            <h2 class="section-title">ألعاب غير معربة</h2>
+                        </div>
+                        <div class="section-action">
+                            <a href="#" class="btn btn-outline btn-sm">عرض الكل</a>
+                        </div>
+                    </div>
+                    
+                    <div class="games-grid">
+                        <!-- بطاقة لعبة 1 -->
+                        <div class="game-card" data-game-id="109">
+                            <img src="images/games/ps5-game9.jpg" alt="Deathloop" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Deathloop</h3>
+                                <div class="game-info">
+                                    <span>أكشن، مغامرة</span>
+                                    <span>30 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- بطاقة لعبة 2 -->
+                        <div class="game-card" data-game-id="110">
+                            <img src="images/games/ps5-game10.jpg" alt="Ghostwire: Tokyo" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Ghostwire: Tokyo</h3>
+                                <div class="game-info">
+                                    <span>أكشن، مغامرة</span>
+                                    <span>20 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- بطاقة لعبة 3 -->
+                        <div class="game-card" data-game-id="111">
+                            <img src="images/games/ps5-game11.jpg" alt="Forspoken" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">Forspoken</h3>
+                                <div class="game-info">
+                                    <span>أكشن، لعب أدوار</span>
+                                    <span>87 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- بطاقة لعبة 4 -->
+                        <div class="game-card" data-game-id="112">
+                            <img src="images/games/ps5-game12.jpg" alt="The Callisto Protocol" class="game-img">
+                            <div class="game-platform">PS5</div>
+                            <div class="game-overlay">
+                                <h3 class="game-title">The Callisto Protocol</h3>
+                                <div class="game-info">
+                                    <span>رعب، أكشن</span>
+                                    <span>45 GB</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="load-more-non-arabic" class="load-more">عرض المزيد</button>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <div class="footer-logo">4GAMER</div>
+                    <p class="footer-about">منصة 4GAMER هي منصة متخصصة في ألعاب PlayStation بجميع إصداراتها، مع التركيز على الألعاب المعربة والتعريبات الرسمية وغير الرسمية.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                        <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                        <li><a href="jailbreak.html">الجيلبريك</a></li>
+                        <li><a href="news.html">الأخبار</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">الأقسام</h3>
+                    <ul class="footer-links">
+                        <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                        <li><a href="ps5-themes.html">ثيمات PS5</a></li>
+                        <li><a href="ps5-apps.html">تطبيقات PS5</a></li>
+                        <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                        <li><a href="ps4-themes.html">ثيمات PS4</a></li>
+                        <li><a href="ps4-apps.html">تطبيقات PS4</a></li>
+                        <li><a href="tutorials.html">الشروحات</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">النشرة البريدية</h3>
+                    <p>اشترك في النشرة البريدية للحصول على آخر الأخبار والتحديثات.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="البريد الإلكتروني">
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">جميع الحقوق محفوظة &copy; 2025 - منصة 4GAMER</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/content-management.js"></script>
+    
+    <script>
+        // إضافة وظيفة تبديل اللغة
+        document.addEventListener('DOMContentLoaded', function() {
+            const languageToggle = document.getElementById('language-toggle');
+            
+            if (languageToggle) {
+                languageToggle.addEventListener('click', function() {
+                    const htmlElement = document.documentElement;
+                    const currentLang = htmlElement.getAttribute('lang');
+                    
+                    if (currentLang === 'ar') {
+                        htmlElement.setAttribute('lang', 'en');
+                        htmlElement.setAttribute('dir', 'ltr');
+                    } else {
+                        htmlElement.setAttribute('lang', 'ar');
+                        htmlElement.setAttribute('dir', 'rtl');
+                    }
+                });
+            }
+            
+            // إضافة وظيفة الفلترة
+            const filterTags = document.querySelectorAll('.filter-tag');
+            const gameCards = document.querySelectorAll('.game-card');
+            const filterApplyBtn = document.getElementById('filter-apply');
+            const filterResetBtn = document.getElementById('filter-reset');
+            
+            // تفعيل الفلاتر السريعة
+            filterTags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // إزالة الفلتر النشط من جميع العناصر
+                    filterTags.forEach(t => t.classList.remove('active'));
+                    
+                    // إضافة الفلتر النشط للعنصر المحدد
+                    this.classList.add('active');
+                    
+                    // تطبيق الفلتر على بطاقات الألعاب
+                    if (filter === 'all') {
+                        gameCards.forEach(card => {
+                            card.style.display = 'block';
+                        });
+                    } else {
+                        gameCards.forEach(card => {
+                            if (card.classList.contains(filter) || 
+                                card.getAttribute('data-tags') && card.getAttribute('data-tags').includes(filter)) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // تفعيل زر تطبيق الفلاتر
+            if (filterApplyBtn) {
+                filterApplyBtn.addEventListener('click', function() {
+                    const platformFilter = document.getElementById('platform-filter').value;
+                    const categoryFilter = document.getElementById('category-filter').value;
+                    const languageFilter = document.getElementById('language-filter').value;
+                    const regionFilter = document.getElementById('region-filter').value;
+                    const sortFilter = document.getElementById('sort-filter').value;
+                    
+                    // تخزين إعدادات الفلترة في localStorage
+                    localStorage.setItem('platformFilter', platformFilter);
+                    localStorage.setItem('categoryFilter', categoryFilter);
+                    localStorage.setItem('languageFilter', languageFilter);
+                    localStorage.setItem('regionFilter', regionFilter);
+                    localStorage.setItem('sortFilter', sortFilter);
+                    
+                    // تطبيق الفلاتر على بطاقات الألعاب
+                    applyFilters(platformFilter, categoryFilter, languageFilter, regionFilter, sortFilter);
+                });
+            }
+            
+            // تفعيل زر إعادة ضبط الفلاتر
+            if (filterResetBtn) {
+                filterResetBtn.addEventListener('click', function() {
+                    // إعادة ضبط قيم الفلاتر
+                    document.getElementById('platform-filter').value = 'ps5';
+                    document.getElementById('category-filter').value = 'all';
+                    document.getElementById('language-filter').value = 'all';
+                    document.getElementById('region-filter').value = 'all';
+                    document.getElementById('sort-filter').value = 'newest';
+                    
+                    // إزالة الفلتر النشط من جميع العناصر
+                    filterTags.forEach(t => t.classList.remove('active'));
+                    
+                    // إظهار جميع بطاقات الألعاب
+                    gameCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                    
+                    // حذف إعدادات الفلترة من localStorage
+                    localStorage.removeItem('platformFilter');
+                    localStorage.removeItem('categoryFilter');
+                    localStorage.removeItem('languageFilter');
+                    localStorage.removeItem('regionFilter');
+                    localStorage.removeItem('sortFilter');
+                });
+            }
+            
+            // وظيفة تطبيق الفلاتر
+            function applyFilters(platform, category, language, region, sort) {
+                gameCards.forEach(card => {
+                    const cardPlatform = card.querySelector('.game-platform').textContent.toLowerCase();
+                    const cardCategory = card.getAttribute('data-category') || '';
+                    const cardLanguage = card.querySelector('.game-badge') ? card.querySelector('.game-badge').textContent : 'غير معربة';
+                    const cardRegion = card.getAttribute('data-region') || '';
+                    
+                    let showCard = true;
+                    
+                    // فلتر المنصة
+                    if (platform !== 'all' && !cardPlatform.includes(platform)) {
+                        showCard = false;
+                    }
+                    
+                    // فلتر التصنيف
+                    if (category !== 'all' && !cardCategory.includes(category)) {
+                        showCard = false;
+                    }
+                    
+                    // فلتر اللغة
+                    if (language === 'arabic' && !cardLanguage.includes('معربة')) {
+                        showCard = false;
+                    } else if (language === 'official-arabic' && !cardLanguage.includes('معربة رسمياً')) {
+                        showCard = false;
+                    } else if (language === 'non-arabic' && cardLanguage !== 'غير معربة') {
+                        showCard = false;
+                    }
+                    
+                    // فلتر المنطقة
+                    if (region !== 'all' && !cardRegion.includes(region)) {
+                        showCard = false;
+                    }
+                    
+                    // عرض أو إخفاء البطاقة
+                    card.style.display = showCard ? 'block' : 'none';
+                });
+                
+                // تطبيق الترتيب
+                sortGames(sort);
+            }
+            
+            // وظيفة ترتيب الألعاب
+            function sortGames(sortType) {
+                const gamesGrid = document.querySelector('.games-grid');
+                const cards = Array.from(gameCards);
+                
+                switch (sortType) {
+                    case 'newest':
+                        cards.sort((a, b) => {
+                            const dateA = a.getAttribute('data-date') || '';
+                            const dateB = b.getAttribute('data-date') || '';
+                            return dateB.localeCompare(dateA);
+                        });
+                        break;
+                    case 'oldest':
+                        cards.sort((a, b) => {
+                            const dateA = a.getAttribute('data-date') || '';
+                            const dateB = b.getAttribute('data-date') || '';
+                            return dateA.localeCompare(dateB);
+                        });
+                        break;
+                    case 'alphabetical':
+                        cards.sort((a, b) => {
+                            const titleA = a.querySelector('.game-title').textContent;
+                            const titleB = b.querySelector('.game-title').textContent;
+                            return titleA.localeCompare(titleB);
+                        });
+                        break;
+                    case 'size-asc':
+                        cards.sort((a, b) => {
+                            const sizeA = parseInt(a.querySelector('.game-info').textContent.match(/\d+/g)[0] || 0);
+                            const sizeB = parseInt(b.querySelector('.game-info').textContent.match(/\d+/g)[0] || 0);
+                            return sizeA - sizeB;
+                        });
+                        break;
+                    case 'size-desc':
+                        cards.sort((a, b) => {
+                            const sizeA = parseInt(a.querySelector('.game-info').textContent.match(/\d+/g)[0] || 0);
+                            const sizeB = parseInt(b.querySelector('.game-info').textContent.match(/\d+/g)[0] || 0);
+                            return sizeB - sizeA;
+                        });
+                        break;
+                }
+                
+                // إعادة ترتيب البطاقات في العرض
+                cards.forEach(card => {
+                    gamesGrid.appendChild(card);
+                });
+            }
+            
+            // إضافة وظيفة النقر على بطاقة اللعبة
+            gameCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const gameId = this.getAttribute('data-game-id');
+                    window.location.href = `game-details.html?id=${gameId}`;
+                });
+            });
+            
+            // استعادة إعدادات الفلترة من localStorage
+            const savedPlatformFilter = localStorage.getItem('platformFilter');
+            const savedCategoryFilter = localStorage.getItem('categoryFilter');
+            const savedLanguageFilter = localStorage.getItem('languageFilter');
+            const savedRegionFilter = localStorage.getItem('regionFilter');
+            const savedSortFilter = localStorage.getItem('sortFilter');
+            
+            if (savedPlatformFilter || savedCategoryFilter || savedLanguageFilter || savedRegionFilter || savedSortFilter) {
+                if (savedPlatformFilter) document.getElementById('platform-filter').value = savedPlatformFilter;
+                if (savedCategoryFilter) document.getElementById('category-filter').value = savedCategoryFilter;
+                if (savedLanguageFilter) document.getElementById('language-filter').value = savedLanguageFilter;
+                if (savedRegionFilter) document.getElementById('region-filter').value = savedRegionFilter;
+                if (savedSortFilter) document.getElementById('sort-filter').value = savedSortFilter;
+                
+                applyFilters(
+                    savedPlatformFilter || 'all',
+                    savedCategoryFilter || 'all',
+                    savedLanguageFilter || 'all',
+                    savedRegionFilter || 'all',
+                    savedSortFilter || 'newest'
+                );
+            }
+        });
+    </script>
+</body>
+</html>

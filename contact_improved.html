@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - 4GAMER</title>
+    <meta name="description" content="تواصل مع فريق 4GAMER - منصة PlayStation العربية الأولى">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* تنسيقات خاصة بصفحة الاتصال */
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .contact-header p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        @media (min-width: 768px) {
+            .contact-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .contact-form-container {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-form-title {
+            font-size: 1.8rem;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-form-title i {
+            color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--heading-color);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            margin: 30px auto 0;
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-info-title {
+            font-size: 1.8rem;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-info-title i {
+            color: var(--primary-color);
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 15px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .contact-info-content {
+            flex: 1;
+        }
+        
+        .contact-info-content h3 {
+            font-size: 1.2rem;
+            color: var(--heading-color);
+            margin-bottom: 5px;
+        }
+        
+        .contact-info-content p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .contact-info-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info-content a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(var(--primary-color-rgb), 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-map {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .contact-map-title {
+            font-size: 1.8rem;
+            color: var(--heading-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-map-title i {
+            color: var(--primary-color);
+        }
+        
+        .map-container {
+            height: 300px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .notification {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .notification.success {
+            background-color: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.2);
+            color: #28a745;
+        }
+        
+        .notification.error {
+            background-color: rgba(220, 53, 69, 0.1);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+        }
+        
+        .form-trust-indicators {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .form-trust-title {
+            font-size: 1rem;
+            color: var(--heading-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .form-trust-title i {
+            color: var(--primary-color);
+        }
+        
+        .trust-indicators {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .trust-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+        
+        .trust-indicator i {
+            color: var(--success-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- إضافة قسم الأسئلة الشائعة -->
+            <li class="dropdown-item highlight-item">
+                <a href="faq.html" class="dropdown-link">
+                    <span><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <!-- إضافة قسم DMCA -->
+            <li class="dropdown-item highlight-item">
+                <a href="dmca.html" class="dropdown-link">
+                    <span><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link active">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <!-- إضافة زر تسجيل دخول المسؤول -->
+            <li class="dropdown-item admin-login-item">
+                <a href="admin-login.html" class="dropdown-link admin-link">
+                    <span><i class="fas fa-user-shield dropdown-icon"></i> تسجيل دخول المسؤول</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h1>اتصل بنا</h1>
+                <p>نحن هنا للإجابة على استفساراتك ومساعدتك في أي وقت</p>
+            </div>
+            
+            <div id="notification" class="notification"></div>
+            
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <h2 class="contact-form-title"><i class="fas fa-paper-plane"></i> أرسل رسالة</h2>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">الموضوع *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">الرسالة *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                    </form>
+                    
+                    <div class="form-trust-indicators">
+                        <h3 class="form-trust-title"><i class="fas fa-shield-alt"></i> معلومات مهمة</h3>
+                        <div class="trust-indicators">
+                            <div class="trust-indicator">
+                                <i class="fas fa-check-circle"></i>
+                                <span>بياناتك محمية ولن يتم مشاركتها مع أي طرف ثالث</span>
+                            </div>
+                            <div class="trust-indicator">
+                                <i class="fas fa-check-circle"></i>
+                                <span>سنرد على رسالتك في غضون 24 ساعة</span>
+                            </div>
+                            <div class="trust-indicator">
+                                <i class="fas fa-check-circle"></i>
+                                <span>يمكنك متابعة حالة طلبك عبر البريد الإلكتروني</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h2 class="contact-info-title"><i class="fas fa-info-circle"></i> معلومات الاتصال</h2>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>البريد الإلكتروني</h3>
+                            <p><a href="mailto:contact@4gamer.com">contact@4gamer.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>رقم الهاتف</h3>
+                            <p><a href="tel:+966500000000">+966 50 000 0000</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>العنوان</h3>
+                            <p>المملكة العربية السعودية، الرياض</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>ساعات العمل</h3>
+                            <p>من الأحد إلى الخميس: 9 صباحاً - 5 مساءً</p>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px; margin-bottom: 10px; color: var(--heading-color);">تابعنا على</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" title="تويتر"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" title="انستغرام"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" title="يوتيوب"><i class="fab fa-youtube"></i></a>
+                        <a href="https://t.me/C9_91" class="social-link" title="تيليجرام"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-map">
+                <h2 class="contact-map-title"><i class="fas fa-map-marked-alt"></i> موقعنا</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.7356984221!2d46.6752534!3d24.7135517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%20Saudi%20Arabia!5e0!3m2!1sen!2sus!4v1651234567890!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- نهاية الصفحة (Footer) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <div class="footer-logo-text">4GAMER</div>
+                    <div class="footer-tagline">منصة PlayStation العربية الأولى</div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">روابط سريعة</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="index.html">الرئيسية</a></li>
+                            <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                            <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                            <li><a href="news.html">الأخبار</a></li>
+                            <li><a href="tutorials-ps4.html">الشروحات</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">الدعم</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="about.html">من نحن</a></li>
+                            <li><a href="contact.html">اتصل بنا</a></li>
+                            <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                            <li><a href="dmca.html">سياسة DMCA</a></li>
+                            <li><a href="suggest.html">اقترح لعبة أو أداة</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title">تابعنا</h3>
+                        <ul class="footer-social-links">
+                            <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i> فيسبوك</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-twitter"></i> تويتر</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i> انستغرام</a></li>
+                            <li><a href="#" target="_blank"><i class="fab fa-youtube"></i> يوتيوب</a></li>
+                            <li><a href="https://t.me/C9_91" target="_blank"><i class="fab fa-telegram"></i> تيليجرام</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">جميع الحقوق محفوظة &copy; 2025 <span>4GAMER</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/dropdown-menu.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            const notification = document.getElementById('notification');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    
+                    // التحقق من صحة البيانات
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const subject = document.getElementById('subject').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    
+                    if (!name || !email || !subject || !message) {
+                        showNotification('يرجى ملء جميع الحقول المطلوبة', 'error');
+                        return;
+                    }
+                    
+                    if (!isValidEmail(email)) {
+                        showNotification('يرجى إدخال بريد إلكتروني صحيح', 'error');
+                        return;
+                    }
+                    
+                    // محاكاة إرسال البيانات إلى الخادم
+                    // في التطبيق الحقيقي، سيتم إرسال البيانات إلى الخادم باستخدام AJAX أو Fetch API
+                    
+                    // عرض رسالة نجاح
+                    showNotification('تم إرسال رسالتك بنجاح! سنرد عليك في أقرب وقت ممكن.', 'success');
+                    
+                    // إعادة تعيين النموذج
+                    contactForm.reset();
+                });
+            }
+            
+            // دالة للتحقق من صحة البريد الإلكتروني
+            function isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+            
+            // دالة لعرض الإشعارات
+            function showNotification(message, type) {
+                if (!notification) return;
+                
+                // تعيين نص الإشعار
+                notification.textContent = message;
+                
+                // تعيين نوع الإشعار
+                notification.className = `notification ${type}`;
+                
+                // إظهار الإشعار
+                notification.style.display = 'block';
+                
+                // إخفاء الإشعار بعد 5 ثوانٍ
+                setTimeout(function() {
+                    notification.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>

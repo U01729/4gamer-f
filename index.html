@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4GAMER - منصة PlayStation العربية الأولى</title>
+    <meta name="description" content="منصة 4GAMER المتخصصة في ألعاب PlayStation بجميع إصداراتها، مع التركيز على الألعاب المعربة والتعريبات الرسمية وغير الرسمية">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    <link rel="stylesheet" href="css/game-grid.css">
+    <link rel="stylesheet" href="css/bilingual-support.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* تنسيقات خاصة بالصفحة الرئيسية */
+        .hero-section {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            margin-bottom: 40px;
+        }
+        
+        .hero-slider {
+            height: 100%;
+            position: relative;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-slide.active {
+            opacity: 1;
+        }
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            padding: 0 40px;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+        
+        .hero-nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-nav-dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+        
+        .featured-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--heading-color);
+            position: relative;
+            padding-right: 15px;
+        }
+        
+        .section-title::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 25px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .view-all {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .view-all:hover {
+            color: var(--accent-color);
+        }
+        
+        .featured-games {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .categories-section {
+            margin-bottom: 40px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .category-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-image {
+            height: 120px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .category-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.7) 100%);
+        }
+        
+        .category-content {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .category-title {
+            font-size: 1.2rem;
+            color: var(--heading-color);
+            margin-bottom: 5px;
+        }
+        
+        .category-count {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .latest-section {
+            margin-bottom: 40px;
+        }
+        
+        .latest-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .news-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .news-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .news-title {
+            font-size: 1.3rem;
+            color: var(--heading-color);
+            margin-bottom: 10px;
+        }
+        
+        .news-excerpt {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .news-read-more {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .news-read-more:hover {
+            color: var(--accent-color);
+        }
+        
+        .cta-section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .cta-title {
+            font-size: 2rem;
+            color: var(--heading-color);
+            margin-bottom: 15px;
+        }
+        
+        .cta-description {
+            color: var(--text-color);
+            max-width: 700px;
+            margin: 0 auto 25px;
+            line-height: 1.6;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .cta-btn-primary:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .cta-btn-secondary {
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+        }
+        
+        .cta-btn-secondary:hover {
+            background-color: var(--border-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 400px;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .cta-section {
+                padding: 30px 20px;
+            }
+            
+            .cta-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline" data-ar-text="منصة PlayStation العربية الأولى" data-en-text="The First Arabic PlayStation Platform">منصة PlayStation العربية الأولى</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث عن ألعاب، ثيمات، تطبيقات..." data-ar-placeholder="ابحث عن ألعاب، ثيمات، تطبيقات..." data-en-placeholder="Search for games, themes, apps...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل اللغة -->
+                <button class="language-toggle" id="language-toggle" aria-label="تبديل اللغة">
+                    <i class="fas fa-globe"></i>
+                </button>
+                
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span data-ar-text="الرئيسية" data-en-text="Home"><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span data-ar-text="PS4" data-en-text="PS4"><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink" data-ar-text="ألعاب PS4" data-en-text="PS4 Games">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink" data-ar-text="ثيمات PS4" data-en-text="PS4 Themes">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink" data-ar-text="تطبيقات PS4" data-en-text="PS4 Apps">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink" data-ar-text="تحديثات PS4" data-en-text="PS4 Updates">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink" data-ar-text="GOLDHEN لـ PS4" data-en-text="PS4 GOLDHEN">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span data-ar-text="PS5" data-en-text="PS5"><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink" data-ar-text="ألعاب PS5" data-en-text="PS5 Games">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink" data-ar-text="ثيمات PS5" data-en-text="PS5 Themes">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink" data-ar-text="تطبيقات PS5" data-en-text="PS5 Apps">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink" data-ar-text="تحديثات PS5" data-en-text="PS5 Updates">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink" data-ar-text="GOLDHEN لـ PS5" data-en-text="PS5 GOLDHEN">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span data-ar-text="الجيلبريك" data-en-text="Jailbreak"><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span data-ar-text="الأخبار" data-en-text="News"><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span data-ar-text="الشروحات" data-en-text="Tutorials"><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink" data-ar-text="شروحات PS4" data-en-text="PS4 Tutorials">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink" data-ar-text="شروحات PS5" data-en-text="PS5 Tutorials">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink" data-ar-text="شروحات الجيلبريك" data-en-text="Jailbreak Tutorials">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- إضافة قسم الأسئلة الشائعة -->
+            <li class="dropdown-item highlight-item">
+                <a href="faq.html" class="dropdown-link">
+                    <span data-ar-text="الأسئلة الشائعة" data-en-text="FAQ"><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <!-- إضافة قسم DMCA -->
+            <li class="dropdown-item highlight-item">
+                <a href="dmca.html" class="dropdown-link">
+                    <span data-ar-text="سياسة DMCA" data-en-text="DMCA Policy"><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span data-ar-text="من نحن" data-en-text="About Us"><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span data-ar-text="اتصل بنا" data-en-text="Contact Us"><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <!-- إضافة زر تسجيل دخول المسؤول -->
+            <li class="dropdown-item admin-login-item">
+                <a href="admin-login.html" class="dropdown-link admin-link">
+                    <span data-ar-text="تسجيل دخول المسؤول" data-en-text="Admin Login"><i class="fas fa-user-shield dropdown-icon"></i> تسجيل دخول المسؤول</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank" data-ar-text="انضم للقناة" data-en-text="Join Channel">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="main-content">
+        <div class="container">
+            <!-- قسم البانر الرئيسي -->
+            <section class="hero-section">
+                <div class="hero-slider" id="hero-slider">
+                    <div class="hero-slide active" style="background-image: url('images/hero/god-of-war.jpg')">
+                        <div class="hero-content">
+                            <h1 class="hero-title" data-ar-text="إله الحرب - معربة رسمياً" data-en-text="God of War - Official Arabic">إله الحرب - معربة رسمياً</h1>
+                            <p class="hero-description" data-ar-text="استمتع بتجربة لعبة إله الحرب الأسطورية مع دعم كامل للغة العربية في القوائم والحوارات" data-en-text="Experience the legendary God of War with full Arabic support in menus and dialogues">استمتع بتجربة لعبة إله الحرب الأسطورية مع دعم كامل للغة العربية في القوائم والحوارات</p>
+                            <a href="game-details.html?id=1" class="hero-btn" data-ar-text="عرض التفاصيل" data-en-text="View Details">عرض التفاصيل</a>
+                        </div>
+                    </div>
+                    <div class="hero-slide" style="background-image: url('images/hero/spider-man.jpg')">
+                        <div class="hero-content">
+                            <h1 class="hero-title" data-ar-text="الرجل العنكبوت - معربة رسمياً" data-en-text="Spider-Man - Official Arabic">الرجل العنكبوت - معربة رسمياً</h1>
+                            <p class="hero-description" data-ar-text="انطلق في مغامرة مثيرة كالرجل العنكبوت لإنقاذ مدينة نيويورك من الأشرار" data-en-text="Embark on an exciting adventure as Spider-Man to save New York City from villains">انطلق في مغامرة مثيرة كالرجل العنكبوت لإنقاذ مدينة نيويورك من الأشرار</p>
+                            <a href="game-details.html?id=2" class="hero-btn" data-ar-text="عرض التفاصيل" data-en-text="View Details">عرض التفاصيل</a>
+                        </div>
+                    </div>
+                    <div class="hero-slide" style="background-image: url('images/hero/the-last-of-us-2.jpg')">
+                        <div class="hero-content">
+                            <h1 class="hero-title" data-ar-text="ذا لاست أوف أس الجزء الثاني - معربة رسمياً" data-en-text="The Last of Us Part II - Official Arabic">ذا لاست أوف أس الجزء الثاني - معربة رسمياً</h1>
+                            <p class="hero-description" data-ar-text="استكشف عالماً ما بعد نهاية العالم في هذه المغامرة المؤثرة والمليئة بالتحديات" data-en-text="Explore a post-apocalyptic world in this emotional and challenging adventure">استكشف عالماً ما بعد نهاية العالم في هذه المغامرة المؤثرة والمليئة بالتحديات</p>
+                            <a href="game-details.html?id=3" class="hero-btn" data-ar-text="عرض التفاصيل" data-en-text="View Details">عرض التفاصيل</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-nav" id="hero-nav">
+                    <div class="hero-nav-dot active" data-slide="0"></div>
+                    <div class="hero-nav-dot" data-slide="1"></div>
+                    <div class="hero-nav-dot" data-slide="2"></div>
+                </div>
+            </section>
+            
+            <!-- قسم الألعاب المميزة -->
+            <section class="featured-section">
+                <div class="section-header">
+                    <h2 class="section-title" data-ar-text="ألعاب مميزة" data-en-text="Featured Games">ألعاب مميزة</h2>
+                    <a href="ps4-games.html" class="view-all" data-ar-text="عرض الكل" data-en-text="View All">عرض الكل</a>
+                </div>
+                
+                <div class="featured-games" id="featured-games">
+                    <!-- سيتم تحميل الألعاب المميزة هنا عبر JavaScript -->
+                </div>
+            </section>
+            
+            <!-- قسم التصنيفات -->
+            <section class="categories-section">
+                <div class="section-header">
+                    <h2 class="section-title" data-ar-text="تصفح حسب التصنيف" data-en-text="Browse by Category">تصفح حسب التصنيف</h2>
+                </div>
+                
+                <div class="categories-grid">
+                    <a href="ps4-games.html?category=action" class="category-card">
+                        <div class="category-image" style="background-image: url('images/categories/action.jpg')"></div>
+                        <div class="category-content">
+                            <h3 class="category-title" data-ar-text="أكشن" data-en-text="Action">أكشن</h3>
+                            <div class="category-count" data-ar-text="142 لعبة" data-en-text="142 Games">142 لعبة</div>
+                        </div>
+                    </a>
+                    
+                    <a href="ps4-games.html?category=adventure" class="category-card">
+                        <div class="category-image" style="background-image: url('images/categories/adventure.jpg')"></div>
+                        <div class="category-content">
+                            <h3 class="category-title" data-ar-text="مغامرة" data-en-text="Adventure">مغامرة</h3>
+                            <div class="category-count" data-ar-text="98 لعبة" data-en-text="98 Games">98 لعبة</div>
+                        </div>
+                    </a>
+                    
+                    <a href="ps4-games.html?category=rpg" class="category-card">
+                        <div class="category-image" style="background-image: url('images/categories/rpg.jpg')"></div>
+                        <div class="category-content">
+                            <h3 class="category-title" data-ar-text="لعب أدوار" data-en-text="RPG">لعب أدوار</h3>
+                            <div class="category-count" data-ar-text="76 لعبة" data-en-text="76 Games">76 لعبة</div>
+                        </div>
+                    </a>
+                    
+                    <a href="ps4-games.html?category=sports" class="category-card">
+                        <div class="category-image" style="background-image: url('images/categories/sports.jpg')"></div>
+                        <div class="category-content">
+                            <h3 class="category-title" data-ar-text="رياضة" data-en-text="Sports">رياضة</h3>
+                            <div class="category-count" data-ar-text="54 لعبة" data-en-text="54 Games">54 لعبة</div>
+                        </div>
+                    </a>
+                    
+                    <a href="ps4-games.html?category=racing" class="category-card">
+                        <div class="category-image" style="background-image: url('images/categories/racing.jpg')"></div>
+                        <div class="category-content">
+                            <h3 class="category-title" data-ar-text="سباق" data-en-text="Racing">سباق</h3>
+                            <div class="category-count" data-ar-text="37 لعبة" data-en-text="37 Games">37 لعبة</div>
+                        </div>
+                    </a>
+                    
+                    <a href="ps4-games.html?category=horror" class="category-card">
+                        <div class="category-image" style="background-image: url('images/categories/horror.jpg')"></div>
+                        <div class="category-content">
+                            <h3 class="category-title" data-ar-text="رعب" data-en-text="Horror">رعب</h3>
+                            <div class="category-count" data-ar-text="29 لعبة" data-en-text="29 Games">29 لعبة</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            
+            <!-- قسم آخر الأخبار -->
+            <section class="latest-section">
+                <div class="section-header">
+                    <h2 class="section-title" data-ar-text="آخر الأخبار" data-en-text="Latest News">آخر الأخبار</h2>
+                    <a href="news.html" class="view-all" data-ar-text="عرض الكل" data-en-text="View All">عرض الكل</a>
+                </div>
+                
+                <div class="latest-grid">
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('images/news/ps5-pro.jpg')"></div>
+                        <div class="news-content">
+                            <div class="news-date" data-ar-text="15 أبريل 2023" data-en-text="April 15, 2023"><i class="far fa-calendar-alt"></i> 15 أبريل 2023</div>
+                            <h3 class="news-title" data-ar-text="تسريبات حول PlayStation 5 Pro وموعد إطلاقه" data-en-text="Leaks about PlayStation 5 Pro and its release date">تسريبات حول PlayStation 5 Pro وموعد إطلاقه</h3>
+                            <p class="news-excerpt" data-ar-text="كشفت تقارير جديدة عن مواصفات PlayStation 5 Pro المرتقب وموعد إطلاقه المتوقع في الربع الأخير من عام 2023..." data-en-text="New reports revealed the specifications of the anticipated PlayStation 5 Pro and its expected release date in the last quarter of 2023...">كشفت تقارير جديدة عن مواصفات PlayStation 5 Pro المرتقب وموعد إطلاقه المتوقع في الربع الأخير من عام 2023...</p>
+                            <a href="news-details.html?id=1" class="news-read-more" data-ar-text="قراءة المزيد" data-en-text="Read More">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('images/news/ps-plus.jpg')"></div>
+                        <div class="news-content">
+                            <div class="news-date" data-ar-text="10 أبريل 2023" data-en-text="April 10, 2023"><i class="far fa-calendar-alt"></i> 10 أبريل 2023</div>
+                            <h3 class="news-title" data-ar-text="ألعاب PlayStation Plus المجانية لشهر أبريل 2023" data-en-text="Free PlayStation Plus games for April 2023">ألعاب PlayStation Plus المجانية لشهر أبريل 2023</h3>
+                            <p class="news-excerpt" data-ar-text="أعلنت سوني عن قائمة الألعاب المجانية لمشتركي خدمة PlayStation Plus لشهر أبريل 2023، والتي تضم مجموعة متنوعة من الألعاب..." data-en-text="Sony announced the list of free games for PlayStation Plus subscribers for April 2023, which includes a variety of games...">أعلنت سوني عن قائمة الألعاب المجانية لمشتركي خدمة PlayStation Plus لشهر أبريل 2023، والتي تضم مجموعة متنوعة من الألعاب...</p>
+                            <a href="news-details.html?id=2" class="news-read-more" data-ar-text="قراءة المزيد" data-en-text="Read More">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="news-card">
+                        <div class="news-image" style="background-image: url('images/news/ps-vr2.jpg')"></div>
+                        <div class="news-content">
+                            <div class="news-date" data-ar-text="5 أبريل 2023" data-en-text="April 5, 2023"><i class="far fa-calendar-alt"></i> 5 أبريل 2023</div>
+                            <h3 class="news-title" data-ar-text="مراجعة نظارة PlayStation VR2: تجربة واقع افتراضي متطورة" data-en-text="PlayStation VR2 Review: Advanced Virtual Reality Experience">مراجعة نظارة PlayStation VR2: تجربة واقع افتراضي متطورة</h3>
+                            <p class="news-excerpt" data-ar-text="بعد إطلاق نظارة PlayStation VR2، نستعرض مميزاتها وعيوبها وأهم الألعاب المتوفرة لها، ونقارنها بالإصدار السابق..." data-en-text="After the launch of PlayStation VR2, we review its features, drawbacks, and the most important games available for it, and compare it with the previous version...">بعد إطلاق نظارة PlayStation VR2، نستعرض مميزاتها وعيوبها وأهم الألعاب المتوفرة لها، ونقارنها بالإصدار السابق...</p>
+                            <a href="news-details.html?id=3" class="news-read-more" data-ar-text="قراءة المزيد" data-en-text="Read More">قراءة المزيد <i class="fas fa-arrow-left"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- قسم الدعوة للعمل -->
+            <section class="cta-section">
+                <h2 class="cta-title" data-ar-text="انضم إلى مجتمع 4GAMER" data-en-text="Join the 4GAMER Community">انضم إلى مجتمع 4GAMER</h2>
+                <p class="cta-description" data-ar-text="احصل على أحدث الألعاب والتحديثات والأخبار المتعلقة بعالم PlayStation. انضم إلى قناتنا على تيليجرام واشترك في النشرة البريدية للبقاء على اطلاع بكل جديد." data-en-text="Get the latest games, updates, and news related to the PlayStation world. Join our Telegram channel and subscribe to the newsletter to stay updated with everything new.">احصل على أحدث الألعاب والتحديثات والأخبار المتعلقة بعالم PlayStation. انضم إلى قناتنا على تيليجرام واشترك في النشرة البريدية للبقاء على اطلاع بكل جديد.</p>
+                <div class="cta-buttons">
+                    <a href="https://t.me/C9_91" class="cta-btn cta-btn-primary" target="_blank" data-ar-text="انضم للقناة" data-en-text="Join Channel">انضم للقناة</a>
+                    <a href="contact.html" class="cta-btn cta-btn-secondary" data-ar-text="اتصل بنا" data-en-text="Contact Us">اتصل بنا</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="footer-logo-text">4GAMER</div>
+                    <div class="footer-tagline" data-ar-text="منصة PlayStation العربية الأولى" data-en-text="The First Arabic PlayStation Platform">منصة PlayStation العربية الأولى</div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title" data-ar-text="روابط سريعة" data-en-text="Quick Links">روابط سريعة</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="index.html" data-ar-text="الرئيسية" data-en-text="Home">الرئيسية</a></li>
+                            <li><a href="ps4-games.html" data-ar-text="ألعاب PS4" data-en-text="PS4 Games">ألعاب PS4</a></li>
+                            <li><a href="ps5-games.html" data-ar-text="ألعاب PS5" data-en-text="PS5 Games">ألعاب PS5</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title" data-ar-text="الدعم" data-en-text="Support">الدعم</h3>
+                        <ul class="footer-links-list">
+                            <li><a href="faq.html" data-ar-text="الأسئلة الشائعة" data-en-text="FAQ">الأسئلة الشائعة</a></li>
+                            <li><a href="contact.html" data-ar-text="اتصل بنا" data-en-text="Contact Us">اتصل بنا</a></li>
+                            <li><a href="dmca.html" data-ar-text="سياسة DMCA" data-en-text="DMCA Policy">سياسة DMCA</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-links-column">
+                        <h3 class="footer-links-title" data-ar-text="تابعنا" data-en-text="Follow Us">تابعنا</h3>
+                        <div class="footer-social-links">
+                            <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="footer-social-link"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="footer-social-link"><i class="fab fa-telegram-plane"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-copyright" data-ar-text="© 2023 4GAMER. جميع الحقوق محفوظة." data-en-text="© 2023 4GAMER. All Rights Reserved.">
+                    &copy; 2023 4GAMER. جميع الحقوق محفوظة.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/dropdown-menu.js"></script>
+    <script src="js/theme-toggle.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/games.js"></script>
+    <script src="js/language-toggle.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل اللعبة - 4GAMER</title>
+    <meta name="description" content="تفاصيل اللعبة - منصة 4GAMER المتخصصة في ألعاب PlayStation بجميع إصداراتها، مع التركيز على الألعاب المعربة والتعريبات الرسمية وغير الرسمية">
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملفات CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/search.css">
+    <link rel="stylesheet" href="css/theme-toggle.css">
+    <link rel="stylesheet" href="css/dropdown-menu.css">
+    <link rel="stylesheet" href="css/sidebar-enhancements.css">
+    <link rel="stylesheet" href="css/unified-sections.css">
+    <link rel="stylesheet" href="css/game-grid.css">
+    <link rel="stylesheet" href="css/bilingual-support.css">
+    
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        /* تنسيقات خاصة بصفحة تفاصيل اللعبة */
+        .game-details-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .game-details-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .game-cover {
+            flex: 0 0 300px;
+            position: relative;
+        }
+        
+        .game-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .game-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .arabic-official {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .arabic {
+            background-color: #17a2b8;
+            color: white;
+        }
+        
+        .game-platform-badge {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .game-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .game-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--heading-color);
+        }
+        
+        .game-original-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .game-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+        
+        .game-meta-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .meta-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        
+        .meta-value {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .game-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .rating-stars {
+            color: #ffc107;
+            margin-right: 10px;
+        }
+        
+        .rating-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .game-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .game-tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .game-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-download:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .btn-trailer {
+            background-color: var(--secondary-bg);
+            color: var(--text-color);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-trailer:hover {
+            background-color: var(--border-color);
+            transform: translateY(-3px);
+        }
+        
+        .game-details-tabs {
+            margin-bottom: 30px;
+        }
+        
+        .tabs-nav {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+        
+        .tab-btn {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            color: var(--primary-color);
+        }
+        
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .screenshot {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+        }
+        
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+        
+        .screenshot:hover img {
+            transform: scale(1.05);
+        }
+        
+        .system-requirements {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .requirements-column {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+        
+        .requirements-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--heading-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .requirements-item {
+            display: flex;
+            margin-bottom: 12px;
+        }
+        
+        .requirements-label {
+            flex: 0 0 120px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+        
+        .requirements-value {
+            flex: 1;
+            color: var(--text-color);
+        }
+        
+        .related-games {
+            margin-top: 50px;
+        }
+        
+        .related-games-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--heading-color);
+        }
+        
+        .related-games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        /* إصلاح مشكلة الشريط الجانبي في صفحة تفاصيل اللعبة */
+        .game-details-page .dropdown-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100vh;
+            background-color: var(--dark-bg);
+            z-index: 1000;
+            overflow-y: auto;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .game-details-page .dropdown-menu.active {
+            right: 0;
+        }
+        
+        .game-details-page .dropdown-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        .game-details-page .dropdown-backdrop.active {
+            display: block;
+        }
+        
+        /* تحسينات للأجهزة المحمولة */
+        @media (max-width: 768px) {
+            .game-details-header {
+                flex-direction: column;
+            }
+            
+            .game-cover {
+                flex: 0 0 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .game-title {
+                font-size: 2rem;
+            }
+            
+            .tabs-nav {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 5px;
+            }
+            
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+            
+            .screenshots-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .game-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn-download, .btn-trailer {
+                width: 100%;
+                justify-content: center;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body class="game-details-page">
+    <!-- الشريط العلوي -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <!-- زر القائمة المنسدلة (الخطوط الثلاثة) -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="فتح القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- شعار الموقع -->
+            <div class="navbar-brand">
+                <a href="index.html">
+                    <div class="brand-logo">4GAMER</div>
+                </a>
+                <div class="brand-tagline">منصة PlayStation العربية</div>
+            </div>
+            
+            <!-- حاوية البحث -->
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="ابحث...">
+                <div class="search-results" id="search-results"></div>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="navbar-actions">
+                <!-- زر تبديل اللغة -->
+                <button class="language-toggle" id="language-toggle" aria-label="تبديل اللغة">
+                    <i class="fas fa-globe"></i>
+                </button>
+                
+                <!-- زر تبديل السمة -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="تبديل السمة">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- القائمة المنسدلة -->
+    <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="dropdown-header">
+            <div class="dropdown-logo">4GAMER</div>
+            <button class="dropdown-close" id="dropdown-close" aria-label="إغلاق القائمة">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <ul class="dropdown-items">
+            <li class="dropdown-item">
+                <a href="index.html" class="dropdown-link">
+                    <span><i class="fas fa-home dropdown-icon"></i> الرئيسية</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS4</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps4-games.html" class="dropdown-sublink">ألعاب PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-themes.html" class="dropdown-sublink">ثيمات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-apps.html" class="dropdown-sublink">تطبيقات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-updates.html" class="dropdown-sublink">تحديثات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps4-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS4</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fab fa-playstation dropdown-icon"></i> PS5</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="ps5-games.html" class="dropdown-sublink">ألعاب PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-themes.html" class="dropdown-sublink">ثيمات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-apps.html" class="dropdown-sublink">تطبيقات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-updates.html" class="dropdown-sublink">تحديثات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="ps5-goldhen.html" class="dropdown-sublink">GOLDHEN لـ PS5</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- إضافة قسم التصنيفات -->
+            <li class="dropdown-item" id="categories-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-tags dropdown-icon"></i> التصنيفات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <!-- سيتم إنشاء عناصر التصنيفات ديناميكياً باستخدام JavaScript -->
+                </ul>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="jailbreak.html" class="dropdown-link">
+                    <span><i class="fas fa-unlock-alt dropdown-icon"></i> الجيلبريك</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="news.html" class="dropdown-link">
+                    <span><i class="fas fa-newspaper dropdown-icon"></i> الأخبار</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="#" class="dropdown-link">
+                    <span><i class="fas fa-book dropdown-icon"></i> الشروحات</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </a>
+                <ul class="dropdown-submenu">
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps4.html" class="dropdown-sublink">شروحات PS4</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-ps5.html" class="dropdown-sublink">شروحات PS5</a>
+                    </li>
+                    <li class="dropdown-subitem">
+                        <a href="tutorials-jailbreak.html" class="dropdown-sublink">شروحات الجيلبريك</a>
+                    </li>
+                </ul>
+            </li>
+            
+            <!-- إضافة قسم الأسئلة الشائعة -->
+            <li class="dropdown-item highlight-item">
+                <a href="faq.html" class="dropdown-link">
+                    <span><i class="fas fa-question-circle dropdown-icon"></i> الأسئلة الشائعة</span>
+                </a>
+            </li>
+            
+            <!-- إضافة قسم DMCA -->
+            <li class="dropdown-item highlight-item">
+                <a href="dmca.html" class="dropdown-link">
+                    <span><i class="fas fa-copyright dropdown-icon"></i> سياسة DMCA</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="about.html" class="dropdown-link">
+                    <span><i class="fas fa-info-circle dropdown-icon"></i> من نحن</span>
+                </a>
+            </li>
+            
+            <li class="dropdown-item">
+                <a href="contact.html" class="dropdown-link">
+                    <span><i class="fas fa-envelope dropdown-icon"></i> اتصل بنا</span>
+                </a>
+            </li>
+            
+            <!-- إضافة زر تسجيل دخول المسؤول -->
+            <li class="dropdown-item admin-login-item">
+                <a href="admin-login.html" class="dropdown-link admin-link">
+                    <span><i class="fas fa-user-shield dropdown-icon"></i> تسجيل دخول المسؤول</span>
+                </a>
+            </li>
+        </ul>
+        
+        <a href="https://t.me/C9_91" class="telegram-link" target="_blank">
+            <i class="fab fa-telegram telegram-icon"></i> انضم للقناة
+        </a>
+    </div>
+
+    <!-- محتوى تفاصيل اللعبة -->
+    <div class="game-details-container">
+        <div class="game-details-header">
+            <div class="game-cover">
+                <img src="images/games/god-of-war-ragnarok.jpg" alt="God of War Ragnarök">
+                <div class="game-badge arabic-official">معربة رسمياً</div>
+                <div class="game-platform-badge">PS5</div>
+            </div>
+            
+            <div class="game-info">
+                <h1 class="game-title">God of War Ragnarök</h1>
+                <div class="game-original-title">إله الحرب: راجناروك</div>
+                
+                <div class="game-rating">
+                    <div class="rating-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <div class="rating-value">4.5/5</div>
+                </div>
+                
+                <p class="game-description">
+                    استكمل رحلة كريتوس وأتريوس في عالم الأساطير الإسكندنافية. انطلق في مغامرة ملحمية مليئة بالتحديات والمعارك الشرسة، واستعد لمواجهة راجناروك، نهاية العالم في الأساطير الإسكندنافية.
+                </p>
+                
+                <div class="game-meta-info">
+                    <div class="meta-item">
+                        <span class="meta-label">المطور</span>
+                        <span class="meta-value">Santa Monica Studio</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">الناشر</span>
+                        <span class="meta-value">Sony Interactive Entertainment</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">تاريخ الإصدار</span>
+                        <span class="meta-value">9 نوفمبر 2022</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">الحجم</span>
+                        <span class="meta-value">84.6 GB</span>
+                    </div>
+                </div>
+                
+                <div class="game-tags">
+                    <div class="game-tag">أكشن</div>
+                    <div class="game-tag">مغامرة</div>
+                    <div class="game-tag">قتال</div>
+                    <div class="game-tag">عالم مفتوح</div>
+                    <div class="game-tag">قصة</div>
+                </div>
+                
+                <div class="game-actions">
+                    <a href="#" class="btn-download">
+                        <i class="fas fa-download"></i> تحميل اللعبة
+                    </a>
+                    <a href="#" class="btn-trailer">
+                        <i class="fas fa-play"></i> مشاهدة العرض
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-details-tabs">
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="screenshots">الصور</button>
+                <button class="tab-btn" data-tab="description">الوصف</button>
+                <button class="tab-btn" data-tab="requirements">متطلبات التشغيل</button>
+                <button class="tab-btn" data-tab="download">روابط التحميل</button>
+            </div>
+            
+            <div class="tab-content active" id="screenshots-tab">
+                <div class="screenshots-grid">
+                    <div class="screenshot">
+                        <img src="images/screenshots/gow-1.jpg" alt="God of War Ragnarök Screenshot 1">
+                    </div>
+                    <div class="screenshot">
+                        <img src="images/screenshots/gow-2.jpg" alt="God of War Ragnarök Screenshot 2">
+                    </div>
+                    <div class="screenshot">
+                        <img src="images/screenshots/gow-3.jpg" alt="God of War Ragnarök Screenshot 3">
+                    </div>
+                    <div class="screenshot">
+                        <img src="images/screenshots/gow-4.jpg" alt="God of War Ragnarök Screenshot 4">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="description-tab">
+                <p>
+                    من Santa Monica Studio يأتي الفصل التالي من ملحمة God of War. يجب على كريتوس وأتريوس السفر إلى كل من العوالم التسعة بحثًا عن إجابات بينما تستعد قوات آسجارد للحرب. في طريقهما سوف يستكشفان مناظر أسطورية مذهلة، ويجمعان الحلفاء من العوالم التسعة، ويواجهان أعداء أقوياء في شكل آلهة نوردية وعمالقة. مع اقتراب تهديد راجناروك، يُجبر كريتوس وأتريوس على الاختيار بين سلامة عائلتهما ومصير العوالم.
+                </p>
+                <p>
+                    تتميز اللعبة بنظام قتال استراتيجي ومثير، حيث يمكن للاعبين استخدام فأس ليفياثان الشهير وشفرات الفوضى، بالإضافة إلى مجموعة متنوعة من الأسلحة والقدرات الجديدة. يمكن للاعبين أيضًا استكشاف العوالم التسعة، وحل الألغاز، والتفاعل مع شخصيات متنوعة من الأساطير الإسكندنافية.
+                </p>
+                <p>
+                    تم تعريب اللعبة بشكل رسمي من قبل Sony، مما يتيح للاعبين العرب الاستمتاع بالقصة الملحمية بلغتهم الأم. يشمل التعريب الترجمة الكاملة للنصوص والحوارات والقوائم، مما يجعل تجربة اللعب أكثر غمرًا وإمتاعًا.
+                </p>
+            </div>
+            
+            <div class="tab-content" id="requirements-tab">
+                <div class="system-requirements">
+                    <div class="requirements-column">
+                        <h3 class="requirements-title">
+                            <i class="fas fa-microchip"></i> متطلبات النظام
+                        </h3>
+                        <ul class="requirements-list">
+                            <li class="requirements-item">
+                                <span class="requirements-label">المنصة</span>
+                                <span class="requirements-value">PlayStation 5</span>
+                            </li>
+                            <li class="requirements-item">
+                                <span class="requirements-label">المعالج</span>
+                                <span class="requirements-value">AMD Zen 2 8 Cores @ 3.5GHz</span>
+                            </li>
+                            <li class="requirements-item">
+                                <span class="requirements-label">الذاكرة</span>
+                                <span class="requirements-value">16 GB GDDR6</span>
+                            </li>
+                            <li class="requirements-item">
+                                <span class="requirements-label">مساحة التخزين</span>
+                                <span class="requirements-value">84.6 GB</span>
+                            </li>
+                            <li class="requirements-item">
+                                <span class="requirements-label">نظام التشغيل</span>
+                                <span class="requirements-value">PlayStation 5 System Software</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="requirements-column">
+                        <h3 class="requirements-title">
+                            <i class="fas fa-cogs"></i> الإعدادات الموصى بها
+                        </h3>
+                        <ul class="requirements-list">
+                            <li class="requirements-item">
+                                <span class="requirements-label">الدقة</span>
+                                <span class="requirements-value">4K @ 30fps أو 1440p @ 60fps</span>
+                            </li>
+                            <li class="requirements-item">
+                                <span class="requirements-label">وضع الأداء</span>
+                                <span class="requirements-value">مفعل للحصول على 60fps</span>
+                            </li>
+                            <li class="requirements-item">
+                                <span class="requirements-label">HDR</span>
+                                <span class="requirements-value">مدعوم ويوصى به</span>
+                            </li>
+                            <li class="requirements-item">
+                                <span class="requirements-label">الصوت</span>
+                                <span class="requirements-value">3D Audio مدعوم</span>
+                            </li>
+                            <li class="requirements-item">
+                                <span class="requirements-label">ميزات DualSense</span>
+                                <span class="requirements-value">مدعومة بالكامل</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="download-tab">
+                <div class="download-links">
+                    <h3>روابط التحميل</h3>
+                    <p>اختر أحد الروابط التالية لتحميل اللعبة:</p>
+                    
+                    <div class="download-options">
+                        <a href="#" class="download-option">
+                            <i class="fas fa-download"></i>
+                            <span class="download-name">رابط التحميل 1 (MediaFire)</span>
+                            <span class="download-size">84.6 GB</span>
+                        </a>
+                        
+                        <a href="#" class="download-option">
+                            <i class="fas fa-download"></i>
+                            <span class="download-name">رابط التحميل 2 (Mega)</span>
+                            <span class="download-size">84.6 GB</span>
+                        </a>
+                        
+                        <a href="#" class="download-option">
+                            <i class="fas fa-download"></i>
+                            <span class="download-name">رابط التحميل 3 (Google Drive)</span>
+                            <span class="download-size">84.6 GB</span>
+                        </a>
+                        
+                        <a href="#" class="download-option">
+                            <i class="fas fa-download"></i>
+                            <span class="download-name">تورنت</span>
+                            <span class="download-size">84.6 GB</span>
+                        </a>
+                    </div>
+                    
+                    <div class="download-instructions">
+                        <h4>تعليمات التثبيت:</h4>
+                        <ol>
+                            <li>قم بتحميل جميع الملفات</li>
+                            <li>قم بفك ضغط الملفات باستخدام برنامج WinRAR أو 7-Zip</li>
+                            <li>قم بنقل مجلد اللعبة إلى جهاز PS5 الخاص بك</li>
+                            <li>قم بتثبيت اللعبة من خلال قائمة الألعاب</li>
+                            <li>استمتع باللعبة!</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="related-games">
+            <h2 class="related-games-title">ألعاب ذات صلة</h2>
+            <div class="related-games-grid">
+                <div class="game-card">
+                    <img src="images/games/horizon-forbidden-west.jpg" alt="Horizon Forbidden West" class="game-img">
+                    <div class="game-platform">PS5</div>
+                    <div class="arabic-badge">معربة</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Horizon Forbidden West</h3>
+                        <div class="game-info">
+                            <span>أكشن، مغامرة</span>
+                            <span>97.8 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <img src="images/games/spider-man-2.jpg" alt="Spider-Man 2" class="game-img">
+                    <div class="game-platform">PS5</div>
+                    <div class="arabic-badge">معربة</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Spider-Man 2</h3>
+                        <div class="game-info">
+                            <span>أكشن، مغامرة</span>
+                            <span>75.2 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <img src="images/games/the-last-of-us-2.jpg" alt="The Last of Us Part II" class="game-img">
+                    <div class="game-platform">PS4</div>
+                    <div class="arabic-badge">معربة</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">The Last of Us Part II</h3>
+                        <div class="game-info">
+                            <span>أكشن، مغامرة</span>
+                            <span>78.3 GB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="game-card">
+                    <img src="images/games/ghost-of-tsushima.jpg" alt="Ghost of Tsushima" class="game-img">
+                    <div class="game-platform">PS4</div>
+                    <div class="arabic-badge">معربة</div>
+                    <div class="game-overlay">
+                        <h3 class="game-title">Ghost of Tsushima</h3>
+                        <div class="game-info">
+                            <span>أكشن، مغامرة</span>
+                            <span>60.5 GB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">4GAMER</h3>
+                    <p class="footer-description">
+                        منصة عربية متخصصة في ألعاب PlayStation بمختلف إصداراتها، مع التركيز على الألعاب المعربة.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://t.me/C9_91" class="social-link" aria-label="Telegram" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ps4-games.html">ألعاب PS4</a></li>
+                        <li><a href="ps5-games.html">ألعاب PS5</a></li>
+                        <li><a href="jailbreak.html">الجيلبريك</a></li>
+                        <li><a href="news.html">الأخبار</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">معلومات قانونية</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">شروط الاستخدام</a></li>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="dmca.html">سياسة DMCA</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    &copy; 2023 - 2024 4GAMER. جميع الحقوق محفوظة.
+                </p>
+                <p class="disclaimer">
+                    PlayStation هي علامة تجارية مسجلة لشركة Sony.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ملفات JavaScript -->
+    <script src="js/dropdown-menu.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/language-toggle.js"></script>
+    <script>
+        // تهيئة علامات التبويب
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // إزالة الفئة النشطة من جميع الأزرار
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // إزالة الفئة النشطة من جميع المحتويات
+                    tabContents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    // إضافة الفئة النشطة للزر المحدد
+                    this.classList.add('active');
+                    
+                    // إضافة الفئة النشطة للمحتوى المقابل
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+            
+            // تكبير الصور عند النقر عليها
+            const screenshots = document.querySelectorAll('.screenshot');
+            screenshots.forEach(screenshot => {
+                screenshot.addEventListener('click', function() {
+                    const img = this.querySelector('img');
+                    const modal = document.createElement('div');
+                    modal.className = 'screenshot-modal';
+                    modal.innerHTML = `
+                        <div class="screenshot-modal-content">
+                            <img src="${img.src}" alt="${img.alt}">
+                            <button class="screenshot-modal-close">&times;</button>
+                        </div>
+                    `;
+                    
+                    document.body.appendChild(modal);
+                    
+                    modal.querySelector('.screenshot-modal-close').addEventListener('click', function() {
+                        modal.remove();
+                    });
+                    
+                    modal.addEventListener('click', function(e) {
+                        if (e.target === modal) {
+                            modal.remove();
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
