@@ -1,0 +1,585 @@
+/* 
+ * 4GAMER Website - Bilingual Support Stylesheet
+ * ملف أنماط دعم اللغتين لموقع 4GAMER
+ */
+
+/* ===== متغيرات اللغة ===== */
+:root {
+  --font-arabic: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-english: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== الإعدادات الأساسية ===== */
+html[lang="ar"] {
+  direction: rtl;
+}
+
+html[lang="en"] {
+  direction: ltr;
+}
+
+/* ===== تطبيق الخطوط حسب اللغة ===== */
+html[lang="ar"] body {
+  font-family: var(--font-arabic);
+}
+
+html[lang="en"] body {
+  font-family: var(--font-english);
+}
+
+/* ===== تعديلات الاتجاه للقوائم ===== */
+html[lang="en"] .navbar-container,
+html[lang="en"] .dropdown-items,
+html[lang="en"] .footer-container {
+  flex-direction: row-reverse;
+}
+
+html[lang="en"] .nav-links li {
+  margin-left: 25px;
+  margin-right: 0;
+}
+
+html[lang="en"] .dropdown-arrow {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+/* ===== تعديلات الاتجاه للأيقونات ===== */
+html[lang="en"] .dropdown-icon,
+html[lang="en"] .section-icon,
+html[lang="en"] .contact-icon {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+/* ===== تعديلات الاتجاه للنصوص ===== */
+html[lang="en"] .text-right {
+  text-align: left;
+}
+
+html[lang="en"] .text-left {
+  text-align: right;
+}
+
+/* ===== تعديلات الاتجاه للهوامش والحدود ===== */
+html[lang="en"] .mr-auto {
+  margin-right: 0 !important;
+  margin-left: auto !important;
+}
+
+html[lang="en"] .ml-auto {
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+html[lang="en"] .pr-3 {
+  padding-right: 0 !important;
+  padding-left: 1rem !important;
+}
+
+html[lang="en"] .pl-3 {
+  padding-left: 0 !important;
+  padding-right: 1rem !important;
+}
+
+/* ===== تعديلات الاتجاه للشريط الجانبي ===== */
+html[lang="en"] .sidebar {
+  border-right: none;
+  border-left: 1px solid var(--dark-surface-2);
+}
+
+html[lang="en"] .sidebar-title::after {
+  right: auto;
+  left: 0;
+}
+
+/* ===== تعديلات الاتجاه للفلاتر ===== */
+html[lang="en"] .filter-tag i {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+/* ===== تعديلات الاتجاه لبطاقات الألعاب ===== */
+html[lang="en"] .game-platform {
+  right: auto;
+  left: 15px;
+}
+
+html[lang="en"] .game-badge {
+  left: auto;
+  right: 15px;
+}
+
+/* ===== تعديلات الاتجاه لتذييل الصفحة ===== */
+html[lang="en"] .footer-title::after {
+  right: auto;
+  left: 0;
+}
+
+/* ===== ترجمات النصوص الثابتة ===== */
+html[lang="ar"] .lang-switch-text::before {
+  content: "English";
+}
+
+html[lang="en"] .lang-switch-text::before {
+  content: "العربية";
+}
+
+html[lang="ar"] .home-text::before {
+  content: "الرئيسية";
+}
+
+html[lang="en"] .home-text::before {
+  content: "Home";
+}
+
+html[lang="ar"] .games-text::before {
+  content: "الألعاب";
+}
+
+html[lang="en"] .games-text::before {
+  content: "Games";
+}
+
+html[lang="ar"] .ps4-text::before {
+  content: "بلايستيشن 4";
+}
+
+html[lang="en"] .ps4-text::before {
+  content: "PlayStation 4";
+}
+
+html[lang="ar"] .ps5-text::before {
+  content: "بلايستيشن 5";
+}
+
+html[lang="en"] .ps5-text::before {
+  content: "PlayStation 5";
+}
+
+html[lang="ar"] .themes-text::before {
+  content: "الثيمات";
+}
+
+html[lang="en"] .themes-text::before {
+  content: "Themes";
+}
+
+html[lang="ar"] .apps-text::before {
+  content: "التطبيقات";
+}
+
+html[lang="en"] .apps-text::before {
+  content: "Apps";
+}
+
+html[lang="ar"] .jailbreak-text::before {
+  content: "الجيلبريك";
+}
+
+html[lang="en"] .jailbreak-text::before {
+  content: "Jailbreak";
+}
+
+html[lang="ar"] .news-text::before {
+  content: "الأخبار";
+}
+
+html[lang="en"] .news-text::before {
+  content: "News";
+}
+
+html[lang="ar"] .tutorials-text::before {
+  content: "الشروحات";
+}
+
+html[lang="en"] .tutorials-text::before {
+  content: "Tutorials";
+}
+
+html[lang="ar"] .about-text::before {
+  content: "من نحن";
+}
+
+html[lang="en"] .about-text::before {
+  content: "About Us";
+}
+
+html[lang="ar"] .contact-text::before {
+  content: "اتصل بنا";
+}
+
+html[lang="en"] .contact-text::before {
+  content: "Contact Us";
+}
+
+html[lang="ar"] .search-placeholder::placeholder {
+  content: "ابحث عن ألعاب، ثيمات، تطبيقات...";
+}
+
+html[lang="en"] .search-placeholder::placeholder {
+  content: "Search for games, themes, apps...";
+}
+
+html[lang="ar"] .filter-platform-text::before {
+  content: "المنصة";
+}
+
+html[lang="en"] .filter-platform-text::before {
+  content: "Platform";
+}
+
+html[lang="ar"] .filter-category-text::before {
+  content: "التصنيف";
+}
+
+html[lang="en"] .filter-category-text::before {
+  content: "Category";
+}
+
+html[lang="ar"] .filter-language-text::before {
+  content: "اللغة";
+}
+
+html[lang="en"] .filter-language-text::before {
+  content: "Language";
+}
+
+html[lang="ar"] .filter-region-text::before {
+  content: "المنطقة";
+}
+
+html[lang="en"] .filter-region-text::before {
+  content: "Region";
+}
+
+html[lang="ar"] .filter-sort-text::before {
+  content: "الترتيب";
+}
+
+html[lang="en"] .filter-sort-text::before {
+  content: "Sort By";
+}
+
+html[lang="ar"] .apply-filter-text::before {
+  content: "تطبيق الفلاتر";
+}
+
+html[lang="en"] .apply-filter-text::before {
+  content: "Apply Filters";
+}
+
+html[lang="ar"] .reset-filter-text::before {
+  content: "إعادة ضبط";
+}
+
+html[lang="en"] .reset-filter-text::before {
+  content: "Reset";
+}
+
+html[lang="ar"] .all-text::before {
+  content: "الكل";
+}
+
+html[lang="en"] .all-text::before {
+  content: "All";
+}
+
+html[lang="ar"] .arabic-text::before {
+  content: "معربة";
+}
+
+html[lang="en"] .arabic-text::before {
+  content: "Arabic";
+}
+
+html[lang="ar"] .converted-text::before {
+  content: "محولة";
+}
+
+html[lang="en"] .converted-text::before {
+  content: "Converted";
+}
+
+html[lang="ar"] .new-text::before {
+  content: "حديثة";
+}
+
+html[lang="en"] .new-text::before {
+  content: "New";
+}
+
+html[lang="ar"] .classic-text::before {
+  content: "كلاسيكية";
+}
+
+html[lang="en"] .classic-text::before {
+  content: "Classic";
+}
+
+html[lang="ar"] .exclusive-text::before {
+  content: "حصرية";
+}
+
+html[lang="en"] .exclusive-text::before {
+  content: "Exclusive";
+}
+
+html[lang="ar"] .multiplayer-text::before {
+  content: "متعددة اللاعبين";
+}
+
+html[lang="en"] .multiplayer-text::before {
+  content: "Multiplayer";
+}
+
+html[lang="ar"] .vr-text::before {
+  content: "واقع افتراضي";
+}
+
+html[lang="en"] .vr-text::before {
+  content: "VR";
+}
+
+html[lang="ar"] .official-arabic-text::before {
+  content: "معربة رسمياً";
+}
+
+html[lang="en"] .official-arabic-text::before {
+  content: "Official Arabic";
+}
+
+html[lang="ar"] .non-official-arabic-text::before {
+  content: "معربة غير رسمياً";
+}
+
+html[lang="en"] .non-official-arabic-text::before {
+  content: "Non-Official Arabic";
+}
+
+html[lang="ar"] .non-arabic-text::before {
+  content: "غير معربة";
+}
+
+html[lang="en"] .non-arabic-text::before {
+  content: "Non-Arabic";
+}
+
+html[lang="ar"] .show-more-text::before {
+  content: "عرض المزيد";
+}
+
+html[lang="en"] .show-more-text::before {
+  content: "Show More";
+}
+
+html[lang="ar"] .show-all-text::before {
+  content: "عرض الكل";
+}
+
+html[lang="en"] .show-all-text::before {
+  content: "Show All";
+}
+
+html[lang="ar"] .download-text::before {
+  content: "تحميل";
+}
+
+html[lang="en"] .download-text::before {
+  content: "Download";
+}
+
+html[lang="ar"] .size-text::before {
+  content: "الحجم";
+}
+
+html[lang="en"] .size-text::before {
+  content: "Size";
+}
+
+html[lang="ar"] .region-text::before {
+  content: "المنطقة";
+}
+
+html[lang="en"] .region-text::before {
+  content: "Region";
+}
+
+html[lang="ar"] .language-text::before {
+  content: "اللغة";
+}
+
+html[lang="en"] .language-text::before {
+  content: "Language";
+}
+
+html[lang="ar"] .release-date-text::before {
+  content: "تاريخ الإصدار";
+}
+
+html[lang="en"] .release-date-text::before {
+  content: "Release Date";
+}
+
+html[lang="ar"] .developer-text::before {
+  content: "المطور";
+}
+
+html[lang="en"] .developer-text::before {
+  content: "Developer";
+}
+
+html[lang="ar"] .publisher-text::before {
+  content: "الناشر";
+}
+
+html[lang="en"] .publisher-text::before {
+  content: "Publisher";
+}
+
+html[lang="ar"] .genre-text::before {
+  content: "النوع";
+}
+
+html[lang="en"] .genre-text::before {
+  content: "Genre";
+}
+
+html[lang="ar"] .description-text::before {
+  content: "الوصف";
+}
+
+html[lang="en"] .description-text::before {
+  content: "Description";
+}
+
+html[lang="ar"] .screenshots-text::before {
+  content: "لقطات الشاشة";
+}
+
+html[lang="en"] .screenshots-text::before {
+  content: "Screenshots";
+}
+
+html[lang="ar"] .trailer-text::before {
+  content: "العرض التشويقي";
+}
+
+html[lang="en"] .trailer-text::before {
+  content: "Trailer";
+}
+
+html[lang="ar"] .requirements-text::before {
+  content: "المتطلبات";
+}
+
+html[lang="en"] .requirements-text::before {
+  content: "Requirements";
+}
+
+html[lang="ar"] .related-games-text::before {
+  content: "ألعاب ذات صلة";
+}
+
+html[lang="en"] .related-games-text::before {
+  content: "Related Games";
+}
+
+html[lang="ar"] .copyright-text::before {
+  content: "جميع الحقوق محفوظة";
+}
+
+html[lang="en"] .copyright-text::before {
+  content: "All Rights Reserved";
+}
+
+/* ===== تعديلات إضافية للتوافق مع اللغة الإنجليزية ===== */
+html[lang="en"] .game-card {
+  text-align: left;
+}
+
+html[lang="en"] .section-title::after {
+  left: 0;
+  right: auto;
+}
+
+html[lang="en"] .nav-links a::after {
+  right: auto;
+  left: 0;
+}
+
+/* ===== تعديلات الخط للغة الإنجليزية ===== */
+html[lang="en"] h1, 
+html[lang="en"] h2, 
+html[lang="en"] h3, 
+html[lang="en"] h4, 
+html[lang="en"] h5, 
+html[lang="en"] h6 {
+  font-family: var(--font-english);
+  font-weight: 600;
+}
+
+html[lang="en"] p, 
+html[lang="en"] a, 
+html[lang="en"] span, 
+html[lang="en"] li, 
+html[lang="en"] input, 
+html[lang="en"] button, 
+html[lang="en"] textarea {
+  font-family: var(--font-english);
+}
+
+/* ===== تعديلات حجم الخط للغة الإنجليزية ===== */
+html[lang="en"] .game-title {
+  font-size: 1.1rem;
+}
+
+html[lang="en"] .section-title {
+  font-size: 1.8rem;
+}
+
+html[lang="en"] .page-title {
+  font-size: 2.2rem;
+}
+
+/* ===== تعديلات الزر العائم لتبديل اللغة ===== */
+.language-float-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.language-float-btn:hover {
+  transform: translateY(-5px);
+  background-color: var(--primary-dark);
+}
+
+/* ===== تعديلات للتوافق مع الأجهزة المحمولة ===== */
+@media (max-width: 768px) {
+  html[lang="en"] .navbar-container,
+  html[lang="en"] .dropdown-items,
+  html[lang="en"] .footer-container {
+    flex-direction: column;
+  }
+  
+  html[lang="en"] .nav-links li {
+    margin-left: 0;
+  }
+  
+  .language-float-btn {
+    bottom: 70px;
+  }
+}
